@@ -1,0 +1,80 @@
+{% include "tacoAPP/header.html" %}
+
+<style>
+#taco-drag-cmp {
+    width: 6em;
+    height: 6em;
+    padding: 0.5em;
+    border: 3px solid #ccc;
+    border-radius: 0 1em 1em 1em;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.5);
+}
+
+#taco-canvas {
+    width: 100em;
+    height: 100em;
+    padding: 0.5em;
+    border: 3px solid #ccc;
+    border-radius: 0 1em 1em 1em;
+    background-color: #fff;
+    background-color: rgba(255,255,255,0.5);
+}
+</style>
+
+<script>
+
+function appendBox(){
+  var newBox = document.createElement("<div id='#taco-drag-cmp'></div>");
+  $('#taco-canvas').append(newBox);
+};
+
+$(function(){$('#taco-drag-cmp').draggable();});
+  // {
+  //     containment: $('body'),
+  //     drag: function(){
+  //         var offset = $(this).offset();
+  //         var xPos = offset.left;
+  //         var yPos = offset.top;
+  //     },
+  //     stop: function(){
+  //         var finalOffset = $(this).offset();
+  //         var finalxPos = finalOffset.left;
+  //         var finalyPos = finalOffset.top;
+  //     },
+  //     revert: 'invalid'
+  // });
+
+</script>
+<body>
+
+<!-- The drawer is always open in large screens. The header is always shown,
+  even in small screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-drawer
+            mdl-layout--fixed-header">
+
+  <div class="mdl-layout__drawer">
+    <span class="mdl-layout-title">Components</span>
+    <nav class="mdl-navigation">
+      <a class="mdl-navigation__link" href="" onclick="addBox()">Add A</a>
+      <a class="mdl-navigation__link" href="">Layer B</a>
+      <a class="mdl-navigation__link" href="">Layer C</a>
+      <a class="mdl-navigation__link" href="">Layer D</a>
+    </nav>
+  </div>
+  <main class="mdl-layout__content">
+    <div class="page-content" id="taco-canvas">
+      <!-- Your content goes here -->
+
+      <div id="taco-drag-cmp">
+        <ul>
+          <li id="name"></li>
+        </ul>
+      </div>
+
+
+    </div>
+  </main>
+</div>
+
+{% include "tacoAPP/tail.html" %}
