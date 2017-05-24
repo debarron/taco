@@ -1,0 +1,129 @@
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="description" content="Introducing Lollipop, a sweet new take on Android.">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">
+<title>Test</title>
+
+<!-- Page styles -->
+<link rel="stylesheet" href="css/material.min.css">
+<link rel="stylesheet" href="flowchart/jquery.flowchart.min.css">
+
+<!--Page Scripts-->
+<script src="flowchart/jquery.min.js"></script>
+<script src="flowchart/jquery-ui.js"></script>
+<script src="flowchart/jquery.flowchart.js"></script>
+
+<style>
+    .toggle{
+        border: 2px solid #000;
+    }
+    .layer-button{
+        width: 100%;    
+    }
+    .parameter-col{
+        background-color: #D3D3D3;
+    }
+    .layer-card-title.mdl-card__title {
+        width: 100%;
+        background: #3E4EB8;
+    }
+    .color-bg-text-headers.mdl-card__title-text{
+        color: #FFF;
+        font-weight: bold;
+        font-size: 32px;
+    }
+
+</style>
+</head>
+<body>
+    <!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+  <header class="mdl-layout__header">
+    <div class="mdl-layout__header-row">
+      <!-- Title -->
+      <span class="mdl-layout-title">Title</span>
+      <!-- Add spacer, to align navigation to the right -->
+      <div class="mdl-layout-spacer"></div>
+      <!-- Navigation. We hide it in small screens. -->
+      <nav class="mdl-navigation mdl-layout--large-screen-only">
+        <a class="mdl-navigation__link" href="">Import Data</a>
+        <a class="mdl-navigation__link" href="">Create Model</a>
+        <a class="mdl-navigation__link" href="">Train Model</a>
+      </nav>
+    </div>
+  </header>
+  <main class="mdl-layout__content">
+        <div class="mdl-grid">
+            <div class="mdl-cell mdl-cell--2-col">
+                <!-- All the layers-->
+                
+                <ul class="mdl-list">
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button add_input_layer">
+                    Input Layer
+                    </button>
+                </li>
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button add_dense_layer">
+                    Dense
+                    </button>
+                </li>
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button add_activation_layer">
+                    Activation
+                    </button>
+                </li>
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button add_conv2d_layer">
+                    Conv2D
+                    </button>
+                </li>
+                </ul>
+                
+                
+            </div>
+            <div class="mdl-cell mdl-cell--8-col toggle" id="model-container">
+                
+            </div>
+            <div class="mdl-cell mdl-cell--2-col">
+              <ul class="mdl-list">
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button delete_selected_button">
+                    Delete Layer / Link
+                    </button>
+                </li>
+                <li class="mdl-list__item">
+                    <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect layer-button get_data">
+                    Get Data
+                    </button>
+                </li>
+                </ul>
+                <div class="mdl-card">
+                    <div class="mdl-card__title layer-card-title">
+                    <h2 class="mdl-card__title-text color-bg-text-headers">Layer Type</h2>
+                    </div>
+                    <div class="mdl-card__actions mdl-card--border">
+                        <!-- Simple Textfield -->
+                        <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="sample1">
+                            <label class="mdl-textfield__label" for="sample1">Layer Name</label>
+                        </div>
+                        </form>
+                        <form action="#">
+                        <div class="mdl-textfield mdl-js-textfield">
+                            <input class="mdl-textfield__input" type="text" id="sample1">
+                            <label class="mdl-textfield__label" for="sample1">Input shape</label>
+                        </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </main>
+</div>
+
+<script src="flowchart/model_struct.js"></script>
+</body>
